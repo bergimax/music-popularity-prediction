@@ -59,16 +59,9 @@ After EDA, i decided to delete some columns based on the redundant value already
 - **Pipfile and Pipfile.lock**: contains the dependencies to run the repo
 - **predict.py**: contains the prediction using flask
 - **test.py**: contains some values to test the model
-- **player_model.bin**: this is the model got from the train.py using Pickle
+- **song_model.bin**: this is the model got from the train.py using Pickle
 - **train.py**: contains the model with the best performance in the testing set, obtained using the notebook
 - **Dockerfile**: contains the image for the docker
-
-### Folder '**Proof of working**'
-- **docker running.png**: screenshot of the docker built running
-- **docker_running.mp4**: video of the docker built running and the prediction
-- **flask running.png**: screenshot of the flask app running in local
-- **flask_running.mp4**: video of the flask built running and the prediction
-- **gunicorn running.mp4**: video of the gunicorn built running and the prediction
 
 ---
 ## 5 - Loading final model into a service:
@@ -88,7 +81,7 @@ git clone https://github.com/bergimax/music-popularity-prediction/
 ```
 - Move into the project's folder, running :
 ``` 
-cd /music-popularity-prediction
+cd music-popularity-prediction
 ```
 - From the project's folder, run :
 ``` 
@@ -128,8 +121,4 @@ P.S: The current values in test.py are taken from the dataset, raw number 2075.
 
 ---
 
-#### Video of the service running :
-I loaded a small video where you can see how the service works, everything it's in the 'Proof of working' folder.
-
-The video show the local service starting in Docker and how it respond to the test.py
-I also attached the screenshot of the service running with flask and gunicorn.
+The model is build using saturn cloud (https://saturncloud.io/ ) because it required a lot of computational memory. If you run train.py you can have error on memory space allocate, it is bypassed using this amazing environment
