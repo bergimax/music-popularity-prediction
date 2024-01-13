@@ -9,9 +9,9 @@ url = 'http://localhost:9696/predict'
 #val expected: 54
 
 song = {
-  "artists": "callum j wright",
-  "album_name": "isn't she lovely (acoustic)",
-  "track_name": "isn't she lovely - acoustic",
+  "artists": "callumjwright",
+  "album_name": "isnt she lovely acoustic",
+  "track_name": "isnt she lovely acoustic",
   "duration_ms": 11.889799,
   "explicit": 0,
   "danceability": 0.69,
@@ -35,5 +35,5 @@ requests.post(url, json=song).json()
 
 response = requests.post(url, json=song).json()
 
-rx = (response['popularity'])
-print('The popularity of the song is: ', rx )
+#rx = (response['popularity'])
+print('The popularity of the song is: ', response['popularity'] )

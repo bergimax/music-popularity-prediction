@@ -22,13 +22,6 @@ df['duration_ms'] = np.log1p(df['duration_ms'])
 for col in strings: #loop per ogni colonna
     df[col] = df[col].str.lower()
 
-for col in df.columns:
-    print(col)
-    print(df[col].unique()[:5]) #stampo solo i primi 5 valori diversi
-    print(df[col].nunique())
-    print()
-
-
 # # Splitting the Data
 df_full_train, df_test = train_test_split(df, test_size=0.2, random_state=11)
 df_train, df_val = train_test_split(df_full_train, test_size=0.25, random_state=11)
@@ -62,10 +55,8 @@ X_train = dv.fit_transform(train_dicts)
 #val
 val_dicts = df_val.to_dict(orient='records')
 X_val = dv.transform(val_dicts)
-#ft
-#train
+#ft train
 dicts_ft = df_full_train.to_dict(orient='records')
-dv = DictVectorizer(sparse = False)
 X_full_train = dv.fit_transform(dicts_ft)
 #test
 dicts_test = df_test.to_dict(orient='records')
@@ -77,6 +68,7 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_val)
 _rmse = rmse(y_val, y_pred)
+
 print(_rmse)
 
 output_file = 'song_model.bin'

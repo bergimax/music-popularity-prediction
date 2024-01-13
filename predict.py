@@ -18,7 +18,7 @@ app = Flask('song_pop')
 def predict():
   song = request.get_json()
 
-  X = dv.transform([song])
+  X = dv.transform(song)
   y_pred = model.predict(X)
 
   result = {
